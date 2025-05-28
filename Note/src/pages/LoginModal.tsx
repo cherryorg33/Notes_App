@@ -19,7 +19,9 @@ const LoginModal: React.FC<Props> = ({ onClose }) => {
         });
         console.log(res);
         onClose();
-        alert('Login Sucessfully')
+        alert('Login Sucessfully');
+        localStorage.setItem('token',res?.data.access_token)
+
     }catch(e){
 alert('Login Failed')
     }

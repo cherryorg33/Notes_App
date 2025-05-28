@@ -61,14 +61,7 @@ const RegisterModal: React.FC<Props> = ({ onClose }) => {
             required
           />
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full border border-gray-300 p-2 rounded"
-            value={password}
-            onChange={(e) => setconfirmpassword(e.target.value)}
-            required
-          />
+         
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
