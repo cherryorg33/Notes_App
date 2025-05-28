@@ -30,9 +30,9 @@ const NoteDrawer: React.FC<Props> = ({ isOpen, onClose, onSave, editingNote }) =
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     try{
-        
+
     }
-    onClose();
+    // onClose();
   };
 
   return (
