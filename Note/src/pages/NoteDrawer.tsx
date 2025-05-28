@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { config } from '../config';
 
 interface Note {
   id?: number;
@@ -30,9 +32,23 @@ const NoteDrawer: React.FC<Props> = ({ isOpen, onClose, onSave, editingNote }) =
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     try{
-
+        if(editingNote){
+            const res =  await axios.put(`${config.BASE_URL}/notes/${editingNote.id}`,{
+                     note_title:title,
+                    note_content:description
+                });
+               console.log(res,'getting ')
+        }else{
+            const res =  await axios.post(`${config.BASE_URL}/notes`,{
+                 note_title:title,
+                 note_content:description
+               });
+              console.log(res,'getting res ');
+        }
+    }catch(e){
+        alert('add error')
     }
-    // onClose();
+   
   };
 
   return (
