@@ -15,10 +15,10 @@ jwt = JWTManager(app)
 
 # MySQL Database Configuration
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'root',
-    'database': 'notesdb'
+    'host': os.environ.get('MYSQL_HOST', 'localhost'),
+    'user': os.environ.get('MYSQL_USER', 'root'),
+    'password': os.environ.get('MYSQL_PASSWORD', 'root'),
+    'database': os.environ.get('MYSQL_DATABASE', 'notesdb')
 }
 
 # Helper function to connect to DB
@@ -60,7 +60,7 @@ def login():
     conn.close()
 
     if user and check_password_hash(user['password'], data['password']):
-        token = create_access_token(identity=str(user['user_id']))  # store user_id as string in token
+        token = create_access_token(identity=str(user['user_id'])) 
         return jsonify(access_token=token), 200
 
     return jsonify({'msg': 'Invalid credentials'}), 401

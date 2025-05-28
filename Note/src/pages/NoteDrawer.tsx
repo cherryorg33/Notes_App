@@ -19,7 +19,6 @@ interface Props {
 const NoteDrawer: React.FC<Props> = ({
   isOpen,
   onClose,
-  onSave,
   editingNote,
   refresh,
 }) => {

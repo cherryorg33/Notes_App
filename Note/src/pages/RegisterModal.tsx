@@ -10,7 +10,6 @@ const RegisterModal: React.FC<Props> = ({ onClose }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmpassword, setconfirmpassword] = useState("");
 
   const handleRegister = async(e: React.FormEvent) => {
     e.preventDefault();
